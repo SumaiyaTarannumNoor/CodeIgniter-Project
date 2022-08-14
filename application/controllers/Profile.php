@@ -1,52 +1,57 @@
 <?php
-class Plan extends CI_Controller{
+
+class profile extends CI_Controller{
     function __construct()
     {
          parent::__construct();
         $this->load->helper('url');
         $this->load->library('session');
-        $this->load->model('PlanModel');
+        $this->load->model('ProfileModel');
         $this->load->helper('form');
+
     }
+
     public function index()
     {
         $data=array();
-        $data['viewPlanData']=$this->PlanModel->viewPlanData();
-        $this->load->view('plan_view',$data);
+        $data['viewProfile']=$this->ProfileModel->viewProfile();
+        $this->load->view('profile',$data);
     }
-
-    function addpost(){
-        $this->load->view('addpost');
+    function profileCreation(){
+        $this->load->view('profileCreation');
     }
-    function addposted(){
-        if($_POST['title']!=''&&$_POST['planDate']!=''&&$_POST['description']){
+    function createdProfile(){
+        if($_POST['name']!=''&&$_POST['email']){
 
         $data=array();
-        $data['title']= $_POST['title'];
-        $data['planDate']= $_POST['planDate'];
-        $data['description']= $_POST['description'];
+        $data['name']= $_POST['name'];
+        $data['email']= $_POST['email'];
         
-        $result=$this->PlanModel->addposted($data);
+        $result=$this->ProfileModel->createdProfile($data);
         
         if($result){    
             session_start();                                                 //!='' added
             $this->session->set_userdata('success','successfully created');
             $this->session->set_userdata('fail','');
             
-            redirect('Plan/addpost');
+            redirect('Profile/profileCreation');
             session_destroy();
         }else{
             $this->session->set_userdata('fail','fail');
-            redirect('Plan/addpost');  
+            redirect('Profile/profileCreation');  
         }
         }else{
         $this->session->set_userdata('fail','Please fill up all the fields!');
         $this->session->set_userdata('success','');
-            redirect('Plan/addpost');  
+            redirect('Profile/profileCreation');  
         }
         
 
 }
+
+
+
 }
+
 
 ?>
