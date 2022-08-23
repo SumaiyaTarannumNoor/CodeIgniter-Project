@@ -27,18 +27,18 @@ class Plan extends CI_Controller{
         $data['description']= $_POST['description'];
         
         $result=$this->PlanModel->addposted($data);
-        
+        session_start();
         if($result){    
-            session_start();                                                 //!='' added
-            $this->session->set_userdata('success','successfully created');
-            $this->session->set_userdata('fail','');
+                                                           //!='' added
+            $this->session->userdata('success','successfully created');
+            $this->session->userdata('fail','');
             
             redirect('Plan/addpost');
-            session_destroy();
         }else{
-            $this->session->set_userdata('fail','fail');
+            $this->session->userdata('fail','fail');
             redirect('Plan/addpost');  
         }
+        session_write_close();
         }else{
         $this->session->set_userdata('fail','Please fill up all the fields!');
         $this->session->set_userdata('success','');

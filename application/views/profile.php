@@ -12,11 +12,11 @@
  
     
 </head>
-<body style="background-color:black">
+<body style="background-color:red">
     <section style = "padding-top: 70px;">
     <div id="main">
     <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
-        <div class = "container" style="background-color:#00FFFF">
+        <div class = "container" style="background-color:blue">
             <div class= "row">
               <div class = "col-md-12">
                 <div class = "card">
