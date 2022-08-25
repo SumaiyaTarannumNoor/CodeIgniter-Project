@@ -27,19 +27,20 @@
                     <?php if($this->session->userdata('success')!=''){
                      echo $this->session->userdata('success');
                     }
-                    unset($_SESSION['success']); 
+                    unset($_SESSION['success']);
+
                     ?>
                      <?php if($this->session->userdata('fail')!=''){
                      echo $this->session->userdata('fail');
-                    }
+                    } 
                     unset($_SESSION['fail']);
 
-                     ?>
-                 <form method="post" action="<?php echo base_url();?>Plan/addposted">
-                    <input type="text" name="title" placeholder="Title" /><br>
-                    <input type="date" name="planDate"  /><br>                    
-                    <input type="text" name="description" placeholder="Description" /><br><br>
-                    <button class="btn btn-primary" type="submit">Update</button>
+                    ?>
+                 <form method="post" action=<?php echo base_url('plan/updatePost/').$post->id;?> >
+                    <input type="text" name="title" value=<?php echo $post->title?> placeholder="Title" /><br>
+                    <input type="date" value=<?php echo $post->planDate ?> name="planDate"  /><br>                    
+                    <input type="text" value=<?php echo $post->description?> name="description" placeholder="Description" /><br><br>
+                    <button class="btn btn-primary" type="submit">Submit</button>
                   </form>
                   </div>
                 </div>
