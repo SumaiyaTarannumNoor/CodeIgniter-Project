@@ -13,6 +13,12 @@ class PlanModel extends CI_model
         return $result->result();
     }
 
+    function postDetailsView($id)
+    {
+        $result = $this->db->get_where('plans', ['id' => $id]);
+        return $result->row();
+    }
+
     function postEdit($id)
     {
         $result = $this->db->get_where('plans', ['id' => $id]);
@@ -25,11 +31,6 @@ class PlanModel extends CI_model
         return $this->db->update('plans', $data);
     }
 
-    function postDetailsView($id)
-    {
-        $result = $this->db->get_where('plans', ['id' => $id]);
-        return $result->row();
-    }
 
     function deletePost($id)
     {
@@ -37,6 +38,6 @@ class PlanModel extends CI_model
 
         $this->db->where('id', $id);
         return $this->db->delete('plans');
-        
+
     }
 }

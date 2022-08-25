@@ -23,7 +23,7 @@ class Student extends CI_Controller{
     }
 
     function studentAdded(){
-      
+      if($this->input->post()){
         $data=array();
         $data['NAME']=$_POST['NAME'];
         $data['Roll']=$_POST['Roll'];
@@ -32,16 +32,58 @@ class Student extends CI_Controller{
         
         if($result){            
             $this->session->set_userdata('success','successfully created');
-            $this->session->set_userdata('fail','');
            redirect('Student/addStudent');
         }else{
-            $this->session->set_userdata('fail','fail');
+            $this->session->set_userdata('fail','Failed to add');
             redirect('Student/addStudent'); 
     }
-
+    }else{
+        redirect('student/addstudent');
+    }
 
 }
 
+    function details($id){
+        $this->load->model("StudentModel");
+        $data['student']= $this-> StudentModel-> studentDetailsView($id);
+        $this -> load ->view('studentDetails', $data);
+    }
+    
+    function editStudent($id)
+    {
+        $this -> load -> model ("StudentModel");
+        $data['student']=$this->StudentModel->studentEdit($id);
+        $this -> load -> view('editStudent', $data);
+    }
+
+    function updateStudent($id){
+        $data = array();
+
+        $data['NAME'] = $_POST['NAME'];
+        $data['Roll'] = $_POST['Roll'];
+        $data[' ClassNam'] = $_POST['ClassNam'];
+
+        $this->load->model("StudentModel");
+
+        $updated = $this->StudentModel->updateStudent($id, $data);
+
+        redirect("Student");
+    }
+
+    function deleteStudent($id) {
+        $this->load->model("StudentModel");
+        $deleted=  $this->StudentModel->deleteStudent($id);
+        if ($deleted) {
+            $this->session->set_userdata("delete_message", "Deleted Successfully");
+           redirect("student");
+        }
+
+        else {
+            
+           $this->session->set_userdata("delete_message", "Deleted Error");
+           redirect("student");
+        }
+    }
 }
 
 ?>

@@ -39,6 +39,9 @@
                         <th>Plan Title</th>
                         <th>Date</th>
                         <th>Plan Description</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
                       </tr>
                     </thead>
                     <tbody>

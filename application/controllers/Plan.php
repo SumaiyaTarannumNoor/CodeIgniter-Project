@@ -46,6 +46,15 @@ class Plan extends CI_Controller
         }
     }
 
+    
+    function details($id)
+    {
+
+        $this->load->model("PlanModel");
+        $data['post'] = $this->PlanModel->postDetailsView($id);
+        $this->load->view('postDetails', $data);
+    }
+
     function editPost($id)
     {
         $this->load->model("PlanModel");
@@ -68,19 +77,12 @@ class Plan extends CI_Controller
         redirect("plan");
     }
 
-    function details($id)
-    {
 
-        $this->load->model("PlanModel");
-        $data['post'] = $this->PlanModel->postDetailsView($id);
-        $this->load->view('postDetails', $data);
-    }
-
-    function detailedPost($id)
-    {
-        $this->load->model("PlanModel");
-        $this->PlanModel->postDetailsView($id);
-    }
+    // function detailedPost($id)
+    // {
+    //     $this->load->model("PlanModel");
+    //     $this->PlanModel->postDetailsView($id);
+    // }
 
     function deletePost($id) {
         $this->load->model("PlanModel");

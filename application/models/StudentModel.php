@@ -15,8 +15,20 @@ class StudentModel extends CI_model{
 
     }
 
+    function studentDetailsView($id){
+        $result = $this->db->get_where('students', ['id'=> $id]);
+        return $result->row();
+    }
 
 
+    function deleteStudent($id)
+    {
+
+
+        $this->db->where('id', $id);
+        return $this->db->delete('students');
+
+    }
 
 
 }

@@ -31,6 +31,9 @@
                             <th>NAME</th>
                             <th>Roll</th>
                             <th>Class</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,6 +43,11 @@
                      <td><?php echo $student->NAME; ?></td>
                      <td><?php echo $student->Roll; ?></td>
                      <td><?php echo $student->ClassNam; ?></td>
+                     <td>
+                            <a href="<?php echo base_url('student/details/' . $student->id) ?>" class="btn btn-info">DETAILS</a>
+                            <a href="<?php echo base_url('student/editStudent/' . $student->id) ?>" class="btn btn-success">EDIT</a>
+                            <a href="<?php echo base_url('student/deleteStudent/' . $student->id) ?>" class="btn btn-danger">DELETE</a>
+                          </td>
                     </tr>
                     <?php }?>
                     </tbody>
