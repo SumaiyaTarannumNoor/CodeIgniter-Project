@@ -26,10 +26,14 @@
                   <div class = "card-body">  
                   <?php if($this->session->userdata('success')!=''){
                      echo $this->session->userdata('success');
-                    } ?>
+                    }
+                    unset($_SESSION['success']); 
+                    ?>
                      <?php if($this->session->userdata('fail')!=''){
                      echo $this->session->userdata('fail');
-                    } ?> 
+                    } 
+                    unset($_SESSION['fail']);
+                    ?> 
                  <form method="post" action="<?php echo base_url();?>Student/studentAdded">
                     <input type="text" name="NAME" placeholder="Name"/><br>
                     <input type="number" name="Roll"  placeholder="Roll"/><br>                    

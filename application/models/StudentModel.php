@@ -10,7 +10,7 @@ class StudentModel extends CI_model{
     function showStudents(){
 
         $this->db->select('*');
-        $result=$this->db->get('students');
+        $result=$this->db->order_by('id', 'desc')->get('students');
         return $result->result();
 
     }

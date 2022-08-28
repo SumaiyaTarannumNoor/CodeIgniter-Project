@@ -9,7 +9,7 @@ class PlanModel extends CI_model
     function viewPlanData()
     {
         $this->db->select('*');
-        $result = $this->db->get('plans');
+        $result = $this->db->order_by('id', 'desc')->get('plans');
         return $result->result();
     }
 

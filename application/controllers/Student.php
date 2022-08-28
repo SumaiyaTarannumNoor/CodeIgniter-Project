@@ -28,6 +28,7 @@ class Student extends CI_Controller{
         $data['NAME']=$_POST['NAME'];
         $data['Roll']=$_POST['Roll'];
         $data['ClassNam']=$_POST['ClassNam'];
+        
         $result=$this->StudentModel->studentAdded($data);
         
         if($result){            
