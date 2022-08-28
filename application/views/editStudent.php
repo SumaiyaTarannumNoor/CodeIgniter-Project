@@ -36,7 +36,7 @@
                     unset($_SESSION['fail']);
 
                     ?>
-                 <form method="post" action=<?php echo base_url('student/updateStudent/').$post->id;?> >
+                 <form method="post" action=<?php echo base_url('student/updateStudent/').$student->id;?> >
                     <input type="text" value=<?php echo $student->NAME?> name="Name" /><br>
                     <input type="number" value=<?php echo $student->Roll ?> name="Roll"  /><br>                    
                     <input type="text" value=<?php echo $student->ClassNam ?> name="description" placeholder="Description" /><br><br>

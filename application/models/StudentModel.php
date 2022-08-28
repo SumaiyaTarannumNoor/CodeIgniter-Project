@@ -19,7 +19,18 @@ class StudentModel extends CI_model{
         $result = $this->db->get_where('students', ['id'=> $id]);
         return $result->row();
     }
+    
+    function studentEdit($id)
+    {
+        $result = $this->db->get_where('students', ['id' => $id]);
+        return $result->row();
+    }
 
+    function updateStudent($id, $data)
+    {
+        $this->db->where("id", $id);
+        return $this->db->update('students', $data);
+    }
 
     function deleteStudent($id)
     {
