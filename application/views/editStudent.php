@@ -21,7 +21,7 @@
               <div class = "col-md-12">
                 <div class = "card">
                   <div class= "card-header">
-                    All Students <a href = "<?php echo base_url();?>plan" class="btn btn-success">Back</a>
+                    All Students <a href = "<?php echo base_url();?>student" class="btn btn-success">Back</a>
                   </div>
                   <div class = "card-body">   
                     <?php if($this->session->userdata('success')!=''){
@@ -37,9 +37,9 @@
 
                     ?>
                  <form method="post" action=<?php echo base_url('student/updateStudent/').$student->id;?> >
-                    <input type="text" name="Name" value=<?php echo $student->NAME?>  /><br>
-                    <input type="number" value=<?php echo $student->Roll ?> name="Roll"  /><br>                    
-                    <input type="text" value=<?php echo $student->ClassNam ?> name="description" placeholder="Description" /><br><br>
+                    <input type="text" name="NAME" value="<?php echo $student->NAME?>" ><br>
+                    <input type="text" name="Roll" value="<?php echo $student->Roll ?>"><br>                    
+                    <input type="text"  name="ClassNam" value="<?php echo $student->ClassNam ?>" ><br><br>
                     <button class="btn btn-primary" type="submit">Submit</button>
                   </form>
                   </div>

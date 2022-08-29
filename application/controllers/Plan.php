@@ -15,13 +15,7 @@ class Plan extends CI_Controller
         $data['viewPlanData'] = $this->PlanModel->viewPlanData();
         $this->load->view('plan_view', $data);
     }
-    public function testDash(){
-        $this->load->view('common/header');
-        $this->load->view('common/sidebar');
-        $this->load->view('crud/crudDashboard');
-        $this->load->view('common/copyright');
-        $this->load->view('common/footer');   
-    }
+
 
     function addpost()
     {
@@ -81,7 +75,7 @@ class Plan extends CI_Controller
 
         $updated = $this->PlanModel->updatePost($id, $data);
 
-        redirect("plan");
+        redirect("plans");
     }
 
 

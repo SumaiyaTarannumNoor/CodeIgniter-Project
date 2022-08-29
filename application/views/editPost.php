@@ -36,10 +36,11 @@
                     unset($_SESSION['fail']);
 
                     ?>
+                    
                  <form method="post" action=<?php echo base_url('plan/updatePost/').$post->id;?> >
-                    <input type="text" name="title" value=<?php echo $post->title?> placeholder="Title" /><br>
-                    <input type="date" value=<?php echo $post->planDate ?> name="planDate"  /><br>                    
-                    <input type="text" value=<?php echo $post->description?> name="description" placeholder="Description" /><br><br>
+                    <input type="text" name="title" value="<?php echo $post->title?>" > <br>
+                    <input type="date" name="planDate" value=<?php echo $post->planDate ?>><br>                    
+                    <input type="text" name="description" value=<?php echo $post->description?>><br><br>
                     <button class="btn btn-primary" type="submit">Submit</button>
                   </form>
                   </div>

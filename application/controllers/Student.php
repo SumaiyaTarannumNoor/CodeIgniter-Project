@@ -27,9 +27,9 @@ class Student extends CI_Controller{
     function studentAdded(){
       if($this->input->post()){
         $data=array();
-        $data['NAME']=$_POST['NAME'];
-        $data['Roll']=$_POST['Roll'];
-        $data['ClassNam']=$_POST['ClassNam'];
+        $data['NAME']=$this->input->post('NAME');
+        $data['Roll']=$this->input->post('Roll');
+        $data['ClassNam']=$this->input->post('ClassNam');
         
         $result=$this->StudentModel->studentAdded($data);
         
@@ -64,13 +64,13 @@ class Student extends CI_Controller{
 
         $data['NAME'] = $_POST['NAME'];
         $data['Roll'] = $_POST['Roll'];
-        $data[' ClassNam'] = $_POST['ClassNam'];
+        $data['ClassNam'] = $_POST['ClassNam'];
 
         $this->load->model("StudentModel");
 
         $updated = $this->StudentModel->updateStudent($id, $data);
 
-        redirect("Student");
+        redirect("students");
     }
 
     function deleteStudent($id) {
