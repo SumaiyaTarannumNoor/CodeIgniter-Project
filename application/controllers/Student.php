@@ -7,6 +7,7 @@ class Student extends CI_Controller{
          parent::__construct();
         $this->load->helper('url');
         $this->load->library('session');
+        $this->load->library('pagination');
         $this->load->model('StudentModel');
         $this->load->helper('form');
     }
@@ -15,6 +16,7 @@ class Student extends CI_Controller{
         $data=array();
         $data['showStudents']=$this->StudentModel->showStudents();
         $this->load->view('students', $data);
+
     }
     
     function addStudent(){
