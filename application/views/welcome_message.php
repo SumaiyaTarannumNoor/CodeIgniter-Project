@@ -9,8 +9,8 @@
   <script src="<?php echo base_url(); ?>assets/js/bootstrap.bundle.min"></script>
     <title>Just-1</title>
 </head>
-<body style="background-image: url(<?php echo base_url(); ?>assets/images/img/background.jpg); position: relative; height: 1260px; width:1280px">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style= "height: 120px; width:1300px">
+<body style="background-image: url(<?php echo base_url(); ?>assets/images/img/background.jpg); position: relative">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style= "height: 120px">
   <a class="navbar-brand" href="#" style="background-image: url(<?php echo base_url(); ?>assets/images/img/logo1.png); height: 90px; width:80px; position: relative; left-padding:60px"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
