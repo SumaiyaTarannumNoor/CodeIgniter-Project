@@ -35,6 +35,7 @@
                             <th></th>
                             <th></th>
                         </tr>
+                    </tfoot> 
                     </thead>
                     <tbody>
                     <?php foreach($showStudents as $student){ ?>

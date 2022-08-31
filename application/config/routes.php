@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['dashboard'] = 'Admin/index';
 $route['Registration'] = 'Admin/StudentRegi';
+$route['allstudents']= 'Admin/showStudents';
 $route['plans'] = 'Plan/index';
 $route['addplan'] = 'Plan/addpost';
 $route['students'] = 'Student/index';

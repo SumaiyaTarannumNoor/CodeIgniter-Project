@@ -21,6 +21,7 @@ class Admin extends CI_Controller
    
         $this->load->view('common/header');
         $this->load->view('common/sidebar');
+        //$this->load->view('common/test');
         $this->load->view('crud/StudentRegi');
         $this->load->view('common/copyright');
         $this->load->view('common/footer');
@@ -51,6 +52,20 @@ class Admin extends CI_Controller
 
             redirect('Registration');
         }
+    }
+
+    public function showStudents(){
+        
+        $data=array();
+        $data['showStudents']=$this->AdminModel->showStudents();
+
+        $this->load->view('common/header');
+        $this->load->view('common/sidebar');
+        $this->load->view('crud/showStudents', $data);
+        $this->load->view('common/copyright');
+        $this->load->view('common/footer');
+
+
     }
 
 
