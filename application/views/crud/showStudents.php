@@ -12,7 +12,8 @@
           </div>
           <div class="col-sm-12" style="background-color:aquamarine">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href = "<?php echo base_url('/dashboard') ?>">Home</a></li>
+              <li class="breadcrumb-item"><a href = "<?php echo base_url('/registration') ?>">Registration</a></li>
               <li class="breadcrumb-item active">DataTables</li>
             </ol>
           </div>
@@ -33,6 +34,26 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body" >
+                  <?php if ($this->session->userdata('delete_message') != '') {
+                    echo $this->session->userdata('delete_message');
+                    }
+
+                  unset($_SESSION['delete_message']);
+                   ?>
+
+                    <?php if($this->session->userdata('success')!=''){
+                     echo $this->session->userdata('success');
+                    }
+                    unset($_SESSION['success']);
+
+                    ?>
+                     <?php if($this->session->userdata('fail')!=''){
+                     echo $this->session->userdata('fail');
+                    } 
+                    unset($_SESSION['fail']);
+
+                    ?>
+                       
                 <table id="example1" class="table table-bordered table-striped" style="background-color:aquamarine">
                  
                 <thead  style="color:#2F4C39">
@@ -52,7 +73,12 @@
                       <td><?php echo $row_count;?>. </td>
                      <td><?php echo $student->name; ?></td>
                      <td><?php echo $student->email; ?></td>
-        
+                     <td>
+                            <a href="details/<?php echo $student->id; ?>" class="btn btn-info">DETAILS</a>
+                            <a href="edit/<?php echo $student->id; ?>" class="btn btn-info">EDIT</a>
+                            <a href="<?php echo base_url('admin/deleteStudent/' . $student->id) ?>" class="btn btn-info">DELETE</a>
+                            
+                          </td>
                 
                     </tr>
                    <?php ++$row_count; }?>

@@ -43,14 +43,14 @@ class Admin extends CI_Controller
 
             if ($result) {
                 $this->session->set_userdata('success', 'successfully created');
-                redirect('Registration');
+                redirect('registration');
             } else {
                 $this->session->set_userdata('fail', 'Failed to add');
-                redirect('Registration');
+                redirect('registration');
             }
         } else {
 
-            redirect('Registration');
+            redirect('registration');
         }
     }
 
@@ -66,6 +66,67 @@ class Admin extends CI_Controller
         $this->load->view('common/footer');
 
 
+    }
+
+    public function studentDetails($id){                
+        //$data=array();
+        $data['student']= $this->AdminModel->studentDetails($id);       
+        $this->load->view('common/header');
+        $this->load->view('common/sidebar');
+        $this->load->view('crud/studentDetails', $data);
+        $this->load->view('common/copyright');
+        $this->load->view('common/footer');
+        
+    }
+
+    public function editStudent($id){                
+        
+        $data['student']= $this->AdminModel->editStudent($id);       
+        $this->load->view('common/header');
+        $this->load->view('common/sidebar');
+        $this->load->view('crud/editStudent', $data);
+        $this->load->view('common/copyright');
+        $this->load->view('common/footer');
+        
+    }
+    
+    function updateStudent($id)
+    {
+
+        $data = array();
+        $data['name'] = $this->input->post('name');
+        $data['email'] = $this->input->post('email');
+
+
+        $updated = $this->AdminModel->updateStudent($id, $data);
+
+        if ($updated) {
+            $this->session->set_userdata("success", "Updated Successfully");
+           redirect("allstudents");
+        }
+
+        else {
+            
+           $this->session->set_userdata("fail", "Update Error");
+           redirect("allstudents");
+        }
+
+        redirect("allstudents");
+    }
+
+    public function deleteStudent($id){
+        
+        $deleted= $this->AdminModel->deleteStudent($id);
+        if ($deleted) {
+            $this->session->set_userdata("delete_message", "Deleted Successfully");
+           redirect("allstudents");
+        }
+
+        else {
+            
+           $this->session->set_userdata("delete_message", "Deleted Error");
+           redirect("allstudents");
+        }
     }
 
 

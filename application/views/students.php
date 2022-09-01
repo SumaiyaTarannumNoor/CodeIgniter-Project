@@ -24,6 +24,12 @@
                     All Students <a href = "Student/addStudent" class="btn btn-success">Add New Student</a>
                   </div>
                   <div class = "card-body">  
+                  <?php if ($this->session->userdata('delete_message') != '') {
+                    echo $this->session->userdata('delete_message');
+                  }
+
+                  unset($_SESSION['delete_message']);
+                   ?>
                    <table class = "table table-striped" style="background-color:#00FFFF">
                     <thead>
                         <tr>
