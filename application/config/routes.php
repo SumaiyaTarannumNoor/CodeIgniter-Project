@@ -50,8 +50,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['dashboard'] = 'Admin/index';
-$route['Registration'] = 'Admin/StudentRegi';
+$route['registration'] = 'Admin/StudentRegi';
 $route['allstudents']= 'Admin/showStudents';
+$route['details/(:any)']= 'Admin/studentDetails/$1';
+$route['edit/(:any)']= 'Admin/editStudent/$1';
 $route['plans'] = 'Plan/index';
 $route['addplan'] = 'Plan/addpost';
 $route['students'] = 'Student/index';

@@ -18,9 +18,9 @@
               <div class = "col-md-6 offset-md-3">
                 <div class = "card">
                   <div class= "card-header" style= "background-color:rgba(2,3,10,0.4)">
-                    Post Details <a href = "<?php echo base_url('/Student') ?>" class="btn btn-success">Show my posts</a>
+                    Student Details <a href = "<?php echo base_url('/Student') ?>" class="btn btn-success">Show my posts</a>
                   </div>
-                  <div class = "card-body" style= "background-color:teal" action="<?php echo base_url();?>Plan/detailedPost">
+                  <div class = "card-body" style= "background-color:teal" action="<?php echo base_url();?>student/details">
                   
                      <h1><?= $student->NAME ?></h1>
                      <p><?= $student->Roll ?></p>
